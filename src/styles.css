@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  color: #e0e0e0; /* Ensures all text is visible in dark mode */
+  background-color: #121212; /* Dark background for contrast */
+  font-family: monospace; /* Monospace font for code */
+}

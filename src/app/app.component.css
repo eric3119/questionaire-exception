@@ -1,0 +1,130 @@
+.dark-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  padding-top: 60px; /* Prevents content from being hidden behind nav */
+}
+
+/* Navigation Bar */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1e1e1e;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 1000;
+  border-bottom: 2px solid #03dac6;
+}
+
+button {
+  padding: 8px 15px;
+  background-color: #03dac6;
+  color: #121212;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-bar button.active {
+  background-color: #00bfa5;
+  font-weight: bold;
+}
+
+.nav-bar button:hover {
+  background-color: #00a38a;
+}
+
+/* Main Container */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 90vw;
+  margin: 0 auto;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  height: 90vh;
+  overflow-y: auto; /* Allow scrolling inside the container */
+}
+
+/* Content Layout */
+.content {
+  display: flex;
+  gap: 20px;
+}
+
+/* Instructions Panel */
+.instructions {
+  flex: 1;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 4px;
+  max-width: 40%;
+}
+
+/* Code Snippet */
+.code-snippet {
+  flex: 1;
+  background-color: #272727;
+  padding: 10px;
+  border-radius: 4px;
+  position: relative;
+}
+
+/* Line Numbers */
+.line-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.line-number {
+  display: inline-block;
+  width: 30px;
+  text-align: right;
+  margin-right: 10px;
+  color: #757575;
+}
+
+.line-checkbox {
+  margin-right: 10px;
+}
+
+.line {
+  display: inline;
+  cursor: pointer;
+  user-select: text;
+  font-family: monospace;
+  color: #cfd8dc;
+}
+
+/* Questions Section */
+.questions {
+  flex: 1;
+  max-width: 40%;
+}
+
+/* Inputs & Buttons */
+button {
+  color: #121212;
+}
+
+select,
+input,
+textarea {
+  color: #e0e0e0;
+  background-color: #333;
+  border: 1px solid #555;
+}
