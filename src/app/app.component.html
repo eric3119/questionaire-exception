@@ -1,5 +1,14 @@
 <div class="dark-mode">
   <div class="container">
+    <button class="small-button" (contextmenu)="showContextMenu.hidden=false" (click)="showContextMenu.hidden=true"
+      id="contextButton">*</button>
+    <!-- Context menu (hidden by default) -->
+    <div #showContextMenu class="context-menu" [style.top.px]="0" [style.left.px]="0" hidden="true">
+      Load Questions
+      <ul>
+        <input type="file" (change)="onFileSelected($event)" />
+      </ul>
+    </div>
     <!-- Question Navigation -->
     <div class="nav-bar">
       <button *ngFor="let q of questions; let i = index" [ngClass]="{'active': i === currentQuestion}"
@@ -12,6 +21,7 @@
       <!-- Instructions Section -->
       <div class="instructions">
         <ol>
+          <li>Project: {{title}}</li>
           <li>Open VS Code and ensure your workspace is set up for Java development.</li>
           <li>Navigate to the assigned project repository.</li>
           <li>Run <code>git checkout task{{ currentQuestion + 1 }}</code> to switch to the task branch.</li>

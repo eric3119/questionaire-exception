@@ -40,6 +40,8 @@ export class AppComponent {
   ];
   selectedLines: number[] = [];
 
+  title = '';
+
   exceptionTypes = [
     'ArithmeticException',
     'NullPointerException',
@@ -78,6 +80,47 @@ export class AppComponent {
       expectedBehavior: '',
       exceptionTypeReason: '',
     });
+  }
+
+  // Method to load problems from a file
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input?.files?.[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const fileContent = reader.result as string;
+          const jsonData: { title: string; problems: string[][] } =
+            JSON.parse(fileContent);
+
+          if(jsonData.title) {
+            this.title = jsonData.title;
+          }
+
+          if (jsonData.problems && Array.isArray(jsonData.problems)) {
+            this.questions = jsonData.problems; // Load problems array
+            // Reset answers for the newly loaded problems
+            this.answers = Array(this.questions.length).fill({
+              selectedLines: [],
+              exceptionType: '',
+              otherExceptionType: '',
+              exceptionReason: '',
+              handlingReason: '',
+              expectedBehavior: '',
+              exceptionTypeReason: '',
+            });
+            this.setCurrentQuestion(0); // Start from the first problem
+          } else {
+            console.error('Invalid file format. "problems" array not found.');
+          }
+        } catch (error) {
+          console.error('Error reading the file:', error);
+        }
+      };
+      reader.readAsText(file);
+    }
   }
 
   setCurrentQuestion(index: number) {

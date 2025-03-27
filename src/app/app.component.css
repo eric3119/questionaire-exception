@@ -33,6 +33,17 @@ button {
   transition: 0.3s;
 }
 
+.small-button {
+  padding: 5px 10px; /* Smaller padding */
+  font-size: 12px;    /* Smaller font size */
+  height: 30px;       /* Smaller height */
+  width: auto;        /* Adjust width automatically based on content */
+  padding: 1px;
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
 .nav-bar button.active {
   background-color: #00bfa5;
   font-weight: bold;
